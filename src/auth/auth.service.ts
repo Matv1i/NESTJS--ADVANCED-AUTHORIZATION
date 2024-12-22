@@ -51,7 +51,7 @@ export class AuthService {
 
     if (!isValidPassword) {
       throw new UnauthorizedException(
-        'Invalid password. Try again or create a new if you forgot.',
+        'Invalid password or email. Try again or create a new profile.',
       );
     }
 
