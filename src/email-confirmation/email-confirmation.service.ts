@@ -10,7 +10,7 @@ import { TokenType, User } from 'prisma/__generated__';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { v4 as uuidv4 } from 'uuid';
 import { ConfirmationDto } from './dto/confirmation.dto';
-import { MailService } from '../mail/mail.service';
+import { MailService } from '../auth/mail/mail.service';
 import { UserService } from '../user/user.service';
 import { AuthService } from '../auth/auth.service';
 

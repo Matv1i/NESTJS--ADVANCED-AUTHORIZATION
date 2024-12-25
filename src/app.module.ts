@@ -4,8 +4,9 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProviderModule } from './auth/provider/provider.module';
-import { MailModule } from './mail/mail.module';
+import { MailModule } from './auth/mail/mail.module';
 import { EmailConfirmationModule } from './email-confirmation/email-confirmation.module';
+import { PasswordRecoveryModule } from './auth/password-recovery/password-recovery.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { EmailConfirmationModule } from './email-confirmation/email-confirmation
     ProviderModule,
     MailModule,
     EmailConfirmationModule,
+    PasswordRecoveryModule,
   ],
 })
 export class AppModule {}

@@ -8,7 +8,7 @@ import { getRecaptchaConfig } from 'src/config/recaption.config';
 import { ProviderModule } from './provider/provider.module';
 import { getProvidersConfig } from 'src/config/provider.config';
 import { EmailConfirmationService } from '../email-confirmation/email-confirmation.service';
-import { MailService } from 'src/mail/mail.service';
+import { MailService } from 'src/auth/mail/mail.service';
 import { EmailConfirmationModule } from 'src/email-confirmation/email-confirmation.module';
 
 @Module({
