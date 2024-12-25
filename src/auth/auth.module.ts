@@ -10,6 +10,7 @@ import { getProvidersConfig } from 'src/config/provider.config';
 import { EmailConfirmationService } from '../email-confirmation/email-confirmation.service';
 import { MailService } from 'src/auth/mail/mail.service';
 import { EmailConfirmationModule } from 'src/email-confirmation/email-confirmation.module';
+import { TwoFactorAuthService } from './two-factor-auth/two-factor-auth.service';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { EmailConfirmationModule } from 'src/email-confirmation/email-confirmati
     forwardRef(() => EmailConfirmationModule),
   ],
   controllers: [AuthController],
-  providers: [AuthService, UserService, MailService],
+  providers: [AuthService, UserService, MailService, TwoFactorAuthService],
   exports: [AuthService],
 })
 export class AuthModule {}

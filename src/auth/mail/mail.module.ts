@@ -13,6 +13,7 @@ import { getMailerConfig } from 'src/config/mail.config';
       inject: [ConfigService],
     }),
   ],
+  exports: [MailService],
 
   providers: [MailService],
 })
