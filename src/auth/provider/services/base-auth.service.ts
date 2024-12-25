@@ -5,7 +5,6 @@ import {
 } from '@nestjs/common';
 import { TypeBaseProviderOptions } from './types/base-provider.options.types';
 import { TypeUserInfo } from './types/user-info.types';
-
 @Injectable()
 export class BaseOAuthService {
   private BASE_URL: string;
@@ -24,7 +23,7 @@ export class BaseOAuthService {
     const query = new URLSearchParams({
       response_type: 'code',
       client_id: this.options.client_id,
-      redirect_url: this.getRedirectUrl(),
+      redirect_uri: this.getRedirectUrl(),
       scope: (this.options.scopes ?? []).join(' '),
       access_type: 'offline',
       prompt: 'select_account',
@@ -39,34 +38,39 @@ export class BaseOAuthService {
     const tokenQuery = new URLSearchParams({
       client_id,
       client_secret,
-      redirect_url: this.getRedirectUrl(),
+      code,
+      redirect_uri: this.getRedirectUrl(),
       grant_type: 'authorization_code',
     });
 
-    const tokenRequest = await fetch(this.options.access_url, {
+    console.log('Options:', this.options);
+    console.log('TokenQuery:', tokenQuery);
+    const tokensRequest = await fetch(this.options.access_url, {
       method: 'POST',
       body: tokenQuery,
       headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded',
         Accept: 'application/json',
       },
     });
 
-    const tokenResponse = await tokenRequest.json();
+    console.log('TokenRequest:', tokensRequest);
 
-    if (!tokenRequest.ok) {
+    if (!tokensRequest.ok) {
       throw new BadRequestException(
         `Cant get a user with ${this.options.profile_url}. Check your access token and try again `,
       );
     }
-    if (!tokenResponse.access_token) {
+
+    const tokens = await tokensRequest.json();
+    if (!tokens.access_token) {
       throw new BadRequestException(
         `There are not tokens with ${this.options.access_url}`,
       );
     }
     const userRequest = await fetch(this.options.profile_url, {
       headers: {
-        Authorization: `Bearer ${tokenResponse.access_token}`,
+        Authorization: `Bearer ${tokens.access_token}`,
       },
     });
 
@@ -80,14 +84,15 @@ export class BaseOAuthService {
 
     return {
       ...user,
-      access_token: tokenResponse.access_token,
-      refresh_token: tokenResponse.refresh_token,
-      expires_at: tokenResponse.expires_at || tokenResponse.expires_in,
+      access_token: tokens.access_token,
+      refresh_token: tokens.refresh_token,
+      expires_at: tokens.expires_at || tokens.expires_in,
       provider: this.options.name,
     };
   }
 
   public getRedirectUrl() {
+    console.log(this.options.name);
     return `${this.BASE_URL}/auth/oauth/callback/${this.options.name}`;
   }
   set baseUrl(value: string) {

@@ -3151,6 +3151,7 @@ export namespace Prisma {
     email: string | null
     token: string | null
     type: $Enums.TokenType | null
+    createdAt: Date | null
     expiresIn: Date | null
   }
 
@@ -3159,6 +3160,7 @@ export namespace Prisma {
     email: string | null
     token: string | null
     type: $Enums.TokenType | null
+    createdAt: Date | null
     expiresIn: Date | null
   }
 
@@ -3167,6 +3169,7 @@ export namespace Prisma {
     email: number
     token: number
     type: number
+    createdAt: number
     expiresIn: number
     _all: number
   }
@@ -3177,6 +3180,7 @@ export namespace Prisma {
     email?: true
     token?: true
     type?: true
+    createdAt?: true
     expiresIn?: true
   }
 
@@ -3185,6 +3189,7 @@ export namespace Prisma {
     email?: true
     token?: true
     type?: true
+    createdAt?: true
     expiresIn?: true
   }
 
@@ -3193,6 +3198,7 @@ export namespace Prisma {
     email?: true
     token?: true
     type?: true
+    createdAt?: true
     expiresIn?: true
     _all?: true
   }
@@ -3274,6 +3280,7 @@ export namespace Prisma {
     email: string | null
     token: string
     type: $Enums.TokenType
+    createdAt: Date
     expiresIn: Date
     _count: TokenCountAggregateOutputType | null
     _min: TokenMinAggregateOutputType | null
@@ -3299,6 +3306,7 @@ export namespace Prisma {
     email?: boolean
     token?: boolean
     type?: boolean
+    createdAt?: boolean
     expiresIn?: boolean
   }, ExtArgs["result"]["token"]>
 
@@ -3307,6 +3315,7 @@ export namespace Prisma {
     email?: boolean
     token?: boolean
     type?: boolean
+    createdAt?: boolean
     expiresIn?: boolean
   }, ExtArgs["result"]["token"]>
 
@@ -3315,6 +3324,7 @@ export namespace Prisma {
     email?: boolean
     token?: boolean
     type?: boolean
+    createdAt?: boolean
     expiresIn?: boolean
   }
 
@@ -3327,6 +3337,7 @@ export namespace Prisma {
       email: string | null
       token: string
       type: $Enums.TokenType
+      createdAt: Date
       expiresIn: Date
     }, ExtArgs["result"]["token"]>
     composites: {}
@@ -3725,6 +3736,7 @@ export namespace Prisma {
     readonly email: FieldRef<"Token", 'String'>
     readonly token: FieldRef<"Token", 'String'>
     readonly type: FieldRef<"Token", 'TokenType'>
+    readonly createdAt: FieldRef<"Token", 'DateTime'>
     readonly expiresIn: FieldRef<"Token", 'DateTime'>
   }
     
@@ -4065,6 +4077,7 @@ export namespace Prisma {
     email: 'email',
     token: 'token',
     type: 'type',
+    createdAt: 'createdAt',
     expiresIn: 'expiresIn'
   };
 
@@ -4378,6 +4391,7 @@ export namespace Prisma {
     email?: StringNullableFilter<"Token"> | string | null
     token?: StringFilter<"Token"> | string
     type?: EnumTokenTypeFilter<"Token"> | $Enums.TokenType
+    createdAt?: DateTimeFilter<"Token"> | Date | string
     expiresIn?: DateTimeFilter<"Token"> | Date | string
   }
 
@@ -4386,6 +4400,7 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     token?: SortOrder
     type?: SortOrder
+    createdAt?: SortOrder
     expiresIn?: SortOrder
   }
 
@@ -4397,6 +4412,7 @@ export namespace Prisma {
     NOT?: TokenWhereInput | TokenWhereInput[]
     email?: StringNullableFilter<"Token"> | string | null
     type?: EnumTokenTypeFilter<"Token"> | $Enums.TokenType
+    createdAt?: DateTimeFilter<"Token"> | Date | string
     expiresIn?: DateTimeFilter<"Token"> | Date | string
   }, "id" | "token">
 
@@ -4405,6 +4421,7 @@ export namespace Prisma {
     email?: SortOrderInput | SortOrder
     token?: SortOrder
     type?: SortOrder
+    createdAt?: SortOrder
     expiresIn?: SortOrder
     _count?: TokenCountOrderByAggregateInput
     _max?: TokenMaxOrderByAggregateInput
@@ -4419,6 +4436,7 @@ export namespace Prisma {
     email?: StringNullableWithAggregatesFilter<"Token"> | string | null
     token?: StringWithAggregatesFilter<"Token"> | string
     type?: EnumTokenTypeWithAggregatesFilter<"Token"> | $Enums.TokenType
+    createdAt?: DateTimeWithAggregatesFilter<"Token"> | Date | string
     expiresIn?: DateTimeWithAggregatesFilter<"Token"> | Date | string
   }
 
@@ -4612,6 +4630,7 @@ export namespace Prisma {
     email?: string | null
     token: string
     type: $Enums.TokenType
+    createdAt?: Date | string
     expiresIn: Date | string
   }
 
@@ -4620,6 +4639,7 @@ export namespace Prisma {
     email?: string | null
     token: string
     type: $Enums.TokenType
+    createdAt?: Date | string
     expiresIn: Date | string
   }
 
@@ -4628,6 +4648,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     token?: StringFieldUpdateOperationsInput | string
     type?: EnumTokenTypeFieldUpdateOperationsInput | $Enums.TokenType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expiresIn?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4636,6 +4657,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     token?: StringFieldUpdateOperationsInput | string
     type?: EnumTokenTypeFieldUpdateOperationsInput | $Enums.TokenType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expiresIn?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4644,6 +4666,7 @@ export namespace Prisma {
     email?: string | null
     token: string
     type: $Enums.TokenType
+    createdAt?: Date | string
     expiresIn: Date | string
   }
 
@@ -4652,6 +4675,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     token?: StringFieldUpdateOperationsInput | string
     type?: EnumTokenTypeFieldUpdateOperationsInput | $Enums.TokenType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expiresIn?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4660,6 +4684,7 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     token?: StringFieldUpdateOperationsInput | string
     type?: EnumTokenTypeFieldUpdateOperationsInput | $Enums.TokenType
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expiresIn?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4946,6 +4971,7 @@ export namespace Prisma {
     email?: SortOrder
     token?: SortOrder
     type?: SortOrder
+    createdAt?: SortOrder
     expiresIn?: SortOrder
   }
 
@@ -4954,6 +4980,7 @@ export namespace Prisma {
     email?: SortOrder
     token?: SortOrder
     type?: SortOrder
+    createdAt?: SortOrder
     expiresIn?: SortOrder
   }
 
@@ -4962,6 +4989,7 @@ export namespace Prisma {
     email?: SortOrder
     token?: SortOrder
     type?: SortOrder
+    createdAt?: SortOrder
     expiresIn?: SortOrder
   }
 

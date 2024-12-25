@@ -63,6 +63,7 @@ model Token{
     email String?
     token String @unique
     type TokenType
+    createdAt DateTime @default(now())
     expiresIn DateTime @map("expires_in")
 
     @@map("tokens")

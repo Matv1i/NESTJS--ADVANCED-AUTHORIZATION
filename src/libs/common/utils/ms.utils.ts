@@ -45,9 +45,9 @@ export type StringValue =
   | `${number}${UnitAnyCase}`
   | `${number} ${UnitAnyCase}`;
 
-// ms('1 minute'); // вернет 60000
-// ms('2 hours'); // вернет 7200000
-// ms('500 ms'); // вернет 500
+// ms('1 minute'); // return 60000
+// ms('2 hours'); // return 7200000
+// ms('500 ms'); // return 500
 export function ms(str: StringValue): number {
   if (typeof str !== 'string' || str.length === 0 || str.length > 100) {
     throw new Error(
@@ -108,7 +108,7 @@ export function ms(str: StringValue): number {
       return n;
     default:
       throw new Error(
-        `Ошибка: единица времени ${type} была распознана, но не существует соответствующего случая. Пожалуйста, проверьте введенные данные.`,
+        `Error: Time unit ${type} was found, but is not a typical case. Please check your input.`,
       );
   }
 }

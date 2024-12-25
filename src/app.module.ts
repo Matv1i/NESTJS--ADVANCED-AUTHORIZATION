@@ -4,6 +4,8 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProviderModule } from './auth/provider/provider.module';
+import { MailModule } from './mail/mail.module';
+import { EmailConfirmationModule } from './email-confirmation/email-confirmation.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { ProviderModule } from './auth/provider/provider.module';
     AuthModule,
     UserModule,
     ProviderModule,
+    MailModule,
+    EmailConfirmationModule,
   ],
 })
 export class AppModule {}

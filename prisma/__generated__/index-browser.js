@@ -148,6 +148,7 @@ exports.Prisma.TokenScalarFieldEnum = {
   email: 'email',
   token: 'token',
   type: 'type',
+  createdAt: 'createdAt',
   expiresIn: 'expiresIn'
 };
 
