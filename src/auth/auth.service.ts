@@ -65,6 +65,13 @@ export class AuthService {
       );
     }
 
+    if (!user.isVerified) {
+      await this.emailConfirmationService.sendVerificationToken(user);
+      throw new UnauthorizedException(
+        "You didn't confirm your email. Please check you email and confirm.",
+      );
+    }
+
     return this.saveSession(req, user);
   }
   public async extractProfileFromCode(
