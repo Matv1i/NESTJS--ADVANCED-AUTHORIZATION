@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { AuthMethod } from 'prisma/__generated__';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { hash } from 'argon2';
+import { UpdateUSerDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
@@ -32,6 +33,24 @@ export class UserService {
 
     return user;
   }
+
+  public async update(userId: string, dto: UpdateUSerDto) {
+    const user = await this.findById(userId);
+
+    const updatedUser = this.prismaService.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        email: dto.email,
+        displayName: dto.name,
+        isTwoFactorEnabled: dto.isTwoFactorEnabled,
+      },
+    });
+
+    return updatedUser;
+  }
+
   public async create(
     email: string,
     password: string,

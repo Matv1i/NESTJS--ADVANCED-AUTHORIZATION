@@ -43,8 +43,6 @@ export class BaseOAuthService {
       grant_type: 'authorization_code',
     });
 
-    console.log('Options:', this.options);
-    console.log('TokenQuery:', tokenQuery);
     const tokensRequest = await fetch(this.options.access_url, {
       method: 'POST',
       body: tokenQuery,
@@ -53,8 +51,6 @@ export class BaseOAuthService {
         Accept: 'application/json',
       },
     });
-
-    console.log('TokenRequest:', tokensRequest);
 
     if (!tokensRequest.ok) {
       throw new BadRequestException(
