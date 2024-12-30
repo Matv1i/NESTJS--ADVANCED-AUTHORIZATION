@@ -10,7 +10,7 @@ export function ResetPasswordTemplateTemplate({
   domain,
   token,
 }: ResetPasswordInterface) {
-  const resetLink = `${domain}/auth/new-password?tolen=${token}`;
+  const resetLink = `${domain}/auth/new-password?token=${token}`;
 
   return (
     <Tailwind>
